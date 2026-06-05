@@ -4,6 +4,8 @@ A modern, animated personal portfolio website built to showcase my work, skills,
 
 ## About Me
 
+![screenshot](mockup.png)
+
 I'm Abhiraj Bhowmick — a full-stack developer and business strategist currently pursuing CSE with Software Engineering at SRM Institute of Science and Technology, hailing from Siliguri, West Bengal. I enjoy working at the intersection of tech, communication, and problem-solving.
 
 ## ✨ Features
