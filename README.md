@@ -1,6 +1,6 @@
 # Abhiraj Bhowmick — Portfolio v2
 
-A modern, animated personal portfolio website built to showcase my work, skills, and personality. Designed with a dark aesthetic, smooth scroll-based animations, and an interactive cursor experience.
+A modern, animated personal portfolio website built to showcase my work, skills, and personality. Designed with a dark aesthetic, smooth scroll-based animations, an interactive cursor experience, and a dedicated 3D skills gallery.
 
 ## About Me
 
@@ -15,11 +15,12 @@ I'm Abhiraj Bhowmick — a full-stack developer and business strategist currentl
 - **About Section** — Personal bio, tech stack breakdown, and a movie recommendations carousel
 - **Blog Section** — Dynamically fetched articles from external sources
 - **Contact Section** — Animated "Let's Talk" CTA with email and calendar booking links
+- **Skills Page** (`/skills`) — Interactive 3D infinite gallery showcasing certifications and skills, with autoplay, scroll, swipe, and keyboard navigation
 - **404 Page** — Retro TV-themed error page with CSS art and glitch animations
 - **Interactive Cursor** — Blobity-powered magnetic cursor with tooltips across the site
 - **Smooth Animations** — Scroll-triggered text and element animations using Framer Motion & GSAP
 - **Responsive Design** — Fully responsive across mobile, tablet, and desktop
-- **Floating Navbar** — Fixed bottom navigation bar with smooth scroll to each section
+- **Floating Navbar** — Fixed bottom navigation bar with smooth scroll to each section and a link to the skills page
 
 ## 🛠 Tech Stack
 
@@ -28,10 +29,12 @@ I'm Abhiraj Bhowmick — a full-stack developer and business strategist currentl
 | **Framework** | Next.js 13 (App Router) |
 | **Language** | TypeScript |
 | **Styling** | Tailwind CSS, CSS3 |
+| **3D / WebGL** | Three.js, React Three Fiber |
 | **Animations** | Framer Motion, GSAP |
 | **Fonts** | Syne (Google Fonts), Mona Sans (local) |
 | **Icons** | Font Awesome |
 | **Cursor** | Blobity |
+| **Analytics** | Vercel Analytics |
 | **Hosting** | Vercel |
 
 ## 📂 Project Structure
@@ -43,6 +46,8 @@ app/
 ├── about-section/      # Bio, tech stack, and movie carousel
 ├── blog-section/       # Blog articles grid
 ├── contact-section/    # Contact CTA with social links
+├── skills/             # Skills page route (/skills)
+├── skills-section/     # 3D infinite gallery component & skill images
 ├── navbar/             # Fixed bottom navigation bar
 ├── footer/             # Site footer
 ├── animations/         # Shared animation components & configs
@@ -53,6 +58,9 @@ app/
 ├── layout.tsx          # Root layout with Syne font & metadata
 ├── page.tsx            # Main page assembling all sections
 └── globals.css         # Global styles & Tailwind directives
+
+public/
+└── skills/             # Certification & skill images for the 3D gallery
 ```
 
 ## 🏃 Run Locally
@@ -82,6 +90,18 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+Visit the skills gallery at [http://localhost:3000/skills](http://localhost:3000/skills).
+
+### Other Scripts
+
+```bash
+npm run build   # Production build
+npm run start   # Start production server
+npm run lint    # Run ESLint
+```
+
+> **Note:** This project includes an `.npmrc` with `legacy-peer-deps=true` to handle a broken peer dependency in the `blobity` package. This is required for both local installs and Vercel deployments.
 
 ## 🔗 Links
 

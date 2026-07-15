@@ -197,6 +197,7 @@ function GalleryScene({
 	const [scrollVelocity, setScrollVelocity] = useState(0);
 	const [autoPlay, setAutoPlay] = useState(true);
 	const lastInteraction = useRef(Date.now());
+	const touchStartY = useRef<number | null>(null);
 
 	const normalizedImages = useMemo(
 		() =>
@@ -289,15 +290,52 @@ function GalleryScene({
 		[speed]
 	);
 
+	const handleTouchStart = useCallback((event: TouchEvent) => {
+		touchStartY.current = event.touches[0]?.clientY ?? null;
+		setAutoPlay(false);
+		lastInteraction.current = Date.now();
+	}, []);
+
+	const handleTouchMove = useCallback(
+		(event: TouchEvent) => {
+			if (touchStartY.current === null) return;
+
+			const touch = event.touches[0];
+			if (!touch) return;
+
+			const deltaY = touchStartY.current - touch.clientY;
+			touchStartY.current = touch.clientY;
+
+			if (Math.abs(deltaY) > 0) {
+				event.preventDefault();
+				setScrollVelocity((prev) => prev + deltaY * 0.04 * speed);
+				lastInteraction.current = Date.now();
+			}
+		},
+		[speed]
+	);
+
+	const handleTouchEnd = useCallback(() => {
+		touchStartY.current = null;
+	}, []);
+
 	useEffect(() => {
 		window.addEventListener('wheel', handleWheel, { passive: false });
 		document.addEventListener('keydown', handleKeyDown);
+		window.addEventListener('touchstart', handleTouchStart, { passive: true });
+		window.addEventListener('touchmove', handleTouchMove, { passive: false });
+		window.addEventListener('touchend', handleTouchEnd, { passive: true });
+		window.addEventListener('touchcancel', handleTouchEnd, { passive: true });
 
 		return () => {
 			window.removeEventListener('wheel', handleWheel);
 			document.removeEventListener('keydown', handleKeyDown);
+			window.removeEventListener('touchstart', handleTouchStart);
+			window.removeEventListener('touchmove', handleTouchMove);
+			window.removeEventListener('touchend', handleTouchEnd);
+			window.removeEventListener('touchcancel', handleTouchEnd);
 		};
-	}, [handleWheel, handleKeyDown]);
+	}, [handleWheel, handleKeyDown, handleTouchStart, handleTouchMove, handleTouchEnd]);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -515,7 +553,7 @@ export default function InfiniteGallery({
 	}
 
 	return (
-		<div className={className} style={style}>
+		<div className={className} style={{ touchAction: 'none', ...style }}>
 			<Canvas
 				camera={{ position: [0, 0, 0], fov: 55 }}
 				gl={{ antialias: true, alpha: true }}

@@ -11,7 +11,7 @@ const InfiniteGallery = dynamic(
 
 export default function SkillsPage() {
   return (
-    <main className="relative h-screen w-full overflow-hidden bg-[#0E1016]">
+    <main className="relative h-screen w-full overflow-hidden bg-[#0E1016] touch-none">
       <div className="pointer-events-none absolute inset-0 z-10 flex flex-col justify-between p-6 sm:p-10">
         <div className="pointer-events-auto flex items-start justify-between">
           <Link
@@ -27,7 +27,7 @@ export default function SkillsPage() {
             Skills
           </h1>
           <p className="pointer-events-none mt-2 text-[12px] text-[#e4ded7]/50 sm:text-[14px]">
-            Scroll or use arrow keys to explore
+            Swipe, scroll, or use arrow keys to explore
           </p>
         </div>
 
