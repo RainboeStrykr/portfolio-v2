@@ -67,13 +67,13 @@ export const devProjects = [
   },
   {
      id: 5,
-     name: "Beamroom",
+     name: "Markdownify",
      description:
-       "BeamRoom is a minimal, modern app that lets you create a room, share a unique join code, and instantly show your screen to anyone — no signup required.",
-     technologies: ["Typescript", "WebRTC", "TailwindCSS"],
-     github: "https://github.com/rainboestrykr/beamroom",
-     demo: "https://beamroom.vercel.app/",
-     image: require(".//../../public/projects/beamroom.gif"),
+       "Markdownify is a powerful, beautiful, and modern markdown editor with zero sign-up required.",
+     technologies: ["Typescript", "Codemirror", "TailwindCSS"],
+     github: "https://github.com/rainboestrykr/markdownify-v2",
+     demo: "https://markdownify.vercel.app/",
+     image: require(".//../../public/projects/markdownify.png"),
      available: true,
   },
   // {
