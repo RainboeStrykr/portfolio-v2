@@ -20,7 +20,7 @@ const NavBar = () => {
   return (
     <nav className="fixed bottom-10 left-0 right-0 z-50 my-0  mx-auto  flex w-[360px] items-center justify-center gap-1 rounded-lg bg-[#07070a]/90 px-1 py-1 text-[#e4ded7] backdrop-blur-md sm:w-[450px] md:p-2 lg:w-[460px]">
       <Link
-        href="https://www.dropbox.com/scl/fi/juk0omdwphg4qxbm1doo8/abhiraj_bhowmick_resume.pdf?rlkey=5cps7slto1cpgxs3tzy9a8gv6&st=0w6lk5wh&dl=0"
+        href="https://www.dropbox.com/scl/fi/yso2auznghawcha1y9c7b/abhiraj-bhowmick-resume.pdf?rlkey=sb052inqdic68p4t6ppou8jhx&st=cgcxehj6&dl=0"
         target="_blank"
         className="flex"
         aria-label="Open my resume"
